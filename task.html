@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+            display:flex;
+            min-height:100vh;
+        }
+
+ 
+        .sidebar{
+            width:220px;
+            background:#111820;
+            color:white;
+            padding:30px 20px;
+            display:flex;
+            flex-direction:column;
+        }
+
+        .logo{
+            text-align:center;
+            margin-bottom:40px;
+        }
+
+        .logo img{
+            width:70px;
+        }
+
+        .menu a{
+            display:block;
+            color:white;
+            text-decoration:none;
+            padding:12px 10px;
+            margin:8px 0;
+            border-radius:10px;
+            transition:0.3s;
+        }
+
+        .menu a:hover,
+        .menu .active{
+            background:#1d2631;
+        }
+
+        .main{
+            flex:1;
+            padding:40px;
+        }
+
+        .title-box{
+            display:inline-block;
+            background:#111820;
+            color:white;
+            padding:10px 20px;
+            border-radius:15px;
+            margin-bottom:5px;
+        }
+
+        .subtitle{
+            color:#555;
+            margin-bottom:30px;
+        }
+
+        .task-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+            gap:25px;
+        }
+
+        .task-card{
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .task-card h2{
+            margin-bottom:15px;
+            color:#222;
+        }
+
+        .task-name{
+            font-weight:bold;
+            color:#444;
+        }
+
+        .deadline{
+            color:gray;
+            margin:5px 0 25px;
+        }
+
+        .task-btn{
+            width:100%;
+            border:none;
+            background:#16c4e9;
+            color:black;
+            padding:12px;
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+        .task-btn:hover{
+            background:#0ea8c9;
+        }
+
+        .footer{
+            position:fixed;
+            bottom:15px;
+            right:20px;
+            background:#999;
+            color:white;
+            font-size:11px;
+            padding:7px 15px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <img src="Logo.png" alt="logo">
+        </div>
+
+        <div class="menu">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="notebooks.html">Virtual Notebooks</a>
+            <a href="task.html" class="active">Tasks</a>
+            <a href="profile.html">Profile</a>
+            <a href="login.html">Logout</a>
+        </div>
+
+    </div>
+
+   
+    <div class="main">
+
+        <div class="title-box">
+            <h1>TASKS</h1>
+        </div>
+
+        <p class="subtitle">Choose a task.</p>
+
+        <div class="task-grid">
+
+            <div class="task-card">
+                <h2>Mathematics</h2>
+
+                <p class="task-name">Drill Sheet 2</p>
+                <p class="deadline">Deadline: April 9, 2026 | 10:00 A.M.</p>
+
+                <button class="task-btn">
+                    Take this activity
+                </button>
+            </div>
+
+            <div class="task-card">
+                <h2>Science</h2>
+
+                <p class="task-name">Lab Activity 3</p>
+                <p class="deadline">Deadline: April 10, 2026 | 11:00 A.M.</p>
+
+                <button class="task-btn">
+                    Take this activity
+                </button>
+            </div>
+
+            <div class="task-card">
+                <h2>ICT</h2>
+
+                <p class="task-name">Quarter Project</p>
+                <p class="deadline">Deadline: May 8, 2026 | 2:30 P.M.</p>
+
+                <button class="task-btn">
+                    Submit
+                </button>
+            </div>
+
+            <div class="task-card">
+                <h2>VE</h2>
+
+                <p class="task-name">Film Critique</p>
+                <p class="deadline">Deadline: April 22, 2026 | 8:00 A.M.</p>
+
+                <button class="task-btn">
+                    Play Video Clip
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        STUDENT NAME | GRADE 9 SECTION
+    </div>
+
+</body>
+</html>
