@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasks</title>
+    <title>Dashboard</title>
 
     <style>
+
         *{
             margin:0;
             padding:0;
             box-sizing:border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', Courier, monospace;
         }
 
         body{
-            background:#f4f4f4;
+            background:#b2cad8;
             display:flex;
             min-height:100vh;
         }
 
- 
+
+
         .sidebar{
             width:220px;
-            background:#111820;
+            background:#121b25;
             color:white;
             padding:30px 20px;
             display:flex;
@@ -50,8 +52,10 @@
 
         .menu a:hover,
         .menu .active{
-            background:#1d2631;
+            background:#121b25;
         }
+
+
 
         .main{
             flex:1;
@@ -60,7 +64,7 @@
 
         .title-box{
             display:inline-block;
-            background:#111820;
+            background:#121b25;
             color:white;
             padding:10px 20px;
             border-radius:15px;
@@ -72,132 +76,182 @@
             margin-bottom:30px;
         }
 
-        .task-grid{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-            gap:25px;
+
+
+        .search-box{
+            margin-bottom:30px;
         }
 
-        .task-card{
-            background:white;
-            padding:25px;
+        .search-box input{
+            width:300px;
+            padding:12px;
+            border-radius:8px;
+            border:1px solid #ccc;
+        }
+
+        .dashboard-card{
+            background:rgb(234, 249, 250);
+            padding:40px;
             border-radius:15px;
             box-shadow:0 4px 12px rgba(0,0,0,0.15);
+            max-width:900px;
         }
 
-        .task-card h2{
-            margin-bottom:15px;
-            color:#222;
+        .dashboard-card h1{
+            margin-bottom:10px;
+            color:#121b25;
         }
 
-        .task-name{
-            font-weight:bold;
+        .dashboard-card h2{
+            margin-bottom:30px;
+            color:#666;
+            font-size:20px;
+        }
+
+ 
+
+        .quarter{
+            margin-bottom:30px;
+        }
+
+        .quarter h3{
+            margin-bottom:12px;
+            color:#121b25;
+        }
+
+        .highlight{
+            background:#16c4e9;
+            color:rgb(0, 0, 0);
+            padding:4px 10px;
+            border-radius:6px;
+        }
+
+        .quarter ul{
+            margin-left:20px;
             color:#444;
         }
 
-        .deadline{
-            color:gray;
-            margin:5px 0 25px;
+        .quarter li{
+            margin:8px 0;
         }
 
-        .task-btn{
-            width:100%;
-            border:none;
-            background:#16c4e9;
-            color:black;
-            padding:12px;
-            border-radius:6px;
-            cursor:pointer;
-            font-weight:bold;
-        }
-
-        .task-btn:hover{
-            background:#0ea8c9;
-        }
+    
 
         .footer{
             position:fixed;
             bottom:15px;
             right:20px;
-            background:#999;
+            background:#99a5aa;
             color:white;
             font-size:11px;
             padding:7px 15px;
         }
+
     </style>
 </head>
 <body>
 
 
+
     <div class="sidebar">
 
         <div class="logo">
-            <img src="Logo.png" alt="logo">
+            <img src="Logo.png" alt="Logo">
         </div>
 
         <div class="menu">
-            <a href="dashboard.html">Dashboard</a>
+            <a href="dashboard.html" class="active">Dashboard</a>
             <a href="notebooks.html">Virtual Notebooks</a>
-            <a href="task.html" class="active">Tasks</a>
+            <a href="tasks.html">Tasks</a>
             <a href="profile.html">Profile</a>
-            <a href="login.html">Logout</a>
+            <a href="login.html">Log Out</a>
         </div>
 
     </div>
 
-   
+ 
+
     <div class="main">
 
         <div class="title-box">
-            <h1>TASKS</h1>
+            <h1>DASHBOARD</h1>
         </div>
 
-        <p class="subtitle">Choose a task.</p>
+        <p class="subtitle">
+            Quarter Work Plan Year: 2025-2026
+        </p>
 
-        <div class="task-grid">
+    
 
-            <div class="task-card">
-                <h2>Mathematics</h2>
+        <div class="search-box">
+            <input type="text" placeholder="Search...">
+        </div>
 
-                <p class="task-name">Drill Sheet 2</p>
-                <p class="deadline">Deadline: April 9, 2026 | 10:00 A.M.</p>
+     
 
-                <button class="task-btn">
-                    Take this activity
-                </button>
+        <div class="dashboard-card">
+
+            <h1>Information and Communications Technology</h1>
+
+            <h2>
+                Curriculum: Year 2025-2026
+            </h2>
+
+            <div class="quarter">
+
+                <h3>
+                    I. <span class="highlight">1st Quarter</span>
+                </h3>
+
+                <ul>
+                    <li>Introduction to HTML</li>
+                    <li>Basic CSS Styling</li>
+                    <li>Quarter Project</li>
+                </ul>
+
             </div>
 
-            <div class="task-card">
-                <h2>Science</h2>
+            <div class="quarter">
 
-                <p class="task-name">Lab Activity 3</p>
-                <p class="deadline">Deadline: April 10, 2026 | 11:00 A.M.</p>
+                <h3>
+                    II. <span class="highlight">2nd Quarter</span>
+                </h3>
 
-                <button class="task-btn">
-                    Take this activity
-                </button>
+                <ul>
+                    <li>Introduction to Bootstrap</li>
+                    <li>Bootstrap with Forms</li>
+                    <li>Quarter Project</li>
+                </ul>
+
             </div>
 
-            <div class="task-card">
-                <h2>ICT</h2>
+            <div class="quarter">
 
-                <p class="task-name">Quarter Project</p>
-                <p class="deadline">Deadline: May 8, 2026 | 2:30 P.M.</p>
+                <h3>
+                    III. <span class="highlight">3rd Quarter</span>
+                </h3>
 
-                <button class="task-btn">
-                    Submit
-                </button>
+                <ul>
+                    <li>Introduction to JavaScript</li>
+                    <li>JavaScript data types and operators</li>
+                    <li>JavaScript functions and events</li>
+                    <li>Quarter Project</li>
+                </ul>
+
             </div>
 
-            <div class="task-card">
-                <h2>VE</h2>
+            <div class="quarter">
 
-                <p class="task-name">Film Critique</p>
-                <p class="deadline">Deadline: April 22, 2026 | 8:00 A.M.</p>
+                <h3>
+                    IV. <span class="highlight">4th Quarter</span>
+                </h3>
 
-                <button class="task-btn">
-                    Play Video Clip
-                </button>
+                <ul>
+                    <li>Conditional Statements</li>
+                    <li>Iteration Statements</li>
+                    <li>Quarter Project</li>
+                </ul>
+
             </div>
 
         </div>
