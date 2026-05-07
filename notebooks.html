@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Notebook</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 24px;
+            line-height: 1.5;
+            color: #111;
+        }
+        .notebook {
+            max-width: 920px;
+        }
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+        .subject-card {
+            border: 1px solid #ccc;
+            padding: 16px;
+            background: #fff;
+        }
+        .subject-card header {
+            margin-bottom: 12px;
+        }
+        .subject-card button {
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 0;
+            cursor: pointer;
+            color: #111;
+        }
+        .subject-card p {
+            margin: 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="notebook">
+        <h1>Virtual School Notebook</h1>
+      
+        <div class="subject-grid" id="subjectGrid"></div>
+    </section>
+    <script>
+        const subjects = [
+            { name: "Filipino", teacher: "Ms. Acosta", grade: "9-Emerald 2025-2026"},
+            { name: "English", teacher: "Ms. Simbajon", grade: "9-Emerald 2025-2026"},
+            { name: "Math", teacher: "Ms. Castro", grade: "9-Emerald 2025-2026"},
+            { name: "Science", teacher: "Ms. Aquilino", grade: "9-Emerald 2025-2026"},
+            { name: "Social Studies", teacher: "Ms. Mendoza", grade: "9-Emerald 2025-2026"},
+            { name: "Values Education", teacher: "Ms. Solidum", grade: "9-Emerald 2025-2026"},
+            { name: "PEH", teacher: "Mr. Tare", grade: "9-Emerald 2025-2026"},
+            { name: "Leadership Training", teacher: "Ms. Mobilia", grade: "9-Emerald 2025-2026"},
+            { name: "Music and Arts", teacher: "Mr. Reyes", grade: "9-Emerald 2025-2026" },
+            { name: "ICT", teacher: "Ms. Caballero", grade: "9-Emerald 2025-2026"},
+            { name: "TLE", teacher: "Ms. Ramos", grade: "9-Emerald 2025-2026" },
+            { name: "Homeroom", teacher: "Ms. Acosta", grade: "9-Emerald 2025-2026" }
+        ];
+
+        const subjectGrid = document.getElementById("subjectGrid");
+
+        function createSubjectCard(subject) {
+            const card = document.createElement("div");
+            card.className = "subject-card";
+            card.innerHTML = `
+                <header>
+                    <button type="button" class="subject-button">${subject.name}</button>
+                </header>
+                <p><strong>Teacher:</strong> ${subject.teacher}</p>
+                <p><strong>Class:</strong> ${subject.grade}</p>
+                
+            `;
+            return card;
+        }
+
+        subjects.forEach(subject => subjectGrid.appendChild(createSubjectCard(subject)));
+    </script>
+</body>
+</html>
