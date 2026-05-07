@@ -3,83 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Notebook</title>
+    <title>Virtual Notebooks</title>
+
     <style>
-        body {
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
             font-family: Arial, sans-serif;
-            margin: 24px;
-            line-height: 1.5;
-            color: #111;
         }
-        .notebook {
-            max-width: 920px;
+
+        body{
+            background:#f4f4f4;
+            display:flex;
+            min-height:100vh;
         }
-        .subject-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 16px;
+
+
+
+        .sidebar{
+            width:220px;
+            background:#111820;
+            color:white;
+            padding:30px 20px;
+            display:flex;
+            flex-direction:column;
         }
-        .subject-card {
-            border: 1px solid #ccc;
-            padding: 16px;
-            background: #fff;
+
+        .logo{
+            text-align:center;
+            margin-bottom:40px;
         }
-        .subject-card header {
-            margin-bottom: 12px;
+
+        .logo img{
+            width:70px;
         }
-        .subject-card button {
-            background: none;
-            border: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            padding: 0;
-            cursor: pointer;
-            color: #111;
+
+        .menu a{
+            display:block;
+            color:white;
+            text-decoration:none;
+            padding:12px 10px;
+            margin:8px 0;
+            border-radius:10px;
+            transition:0.3s;
         }
-        .subject-card p {
-            margin: 4px 0;
+
+        .menu a:hover,
+        .menu .active{
+            background:#1d2631;
         }
+
+
+        .main{
+            flex:1;
+            padding:40px;
+        }
+
+        .title-box{
+            display:inline-block;
+            background:#111820;
+            color:white;
+            padding:10px 20px;
+            border-radius:15px;
+            margin-bottom:5px;
+        }
+
+        .subtitle{
+            color:#555;
+            margin-bottom:30px;
+        }
+
+
+        .subject-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:25px;
+        }
+
+        .subject-card{
+            background:white;
+            padding:25px;
+            border-radius:15px;
+            box-shadow:0 4px 12px rgba(0,0,0,0.15);
+            transition:0.3s;
+        }
+
+        .subject-card:hover{
+            transform:translateY(-5px);
+        }
+
+        .subject-card h2{
+            margin-bottom:15px;
+            color:#222;
+        }
+
+        .subject-card p{
+            margin:8px 0;
+            color:#555;
+        }
+
+        .open-btn{
+            margin-top:20px;
+            width:100%;
+            border:none;
+            background:#16c4e9;
+            padding:12px;
+            border-radius:6px;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+        .open-btn:hover{
+            background:#0ea8c9;
+        }
+
+        .footer{
+            position:fixed;
+            bottom:15px;
+            right:20px;
+            background:#999;
+            color:white;
+            font-size:11px;
+            padding:7px 15px;
+        }
+
     </style>
 </head>
 <body>
-    <section class="notebook">
-        <h1>Virtual School Notebook</h1>
-      
+
+
+
+    <div class="sidebar">
+
+        <div class="logo">
+            <img src="Logo.png" alt="Logo">
+        </div>
+
+        <div class="menu">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="notebooks.html" class="active">Virtual Notebooks</a>
+            <a href="task.html">Tasks</a>
+            <a href="profile.html">Profile</a>
+            <a href="login.html">Logout</a>
+        </div>
+
+    </div>
+
+
+
+    <div class="main">
+
+        <div class="title-box">
+            <h1>NOTEBOOKS</h1>
+        </div>
+
+        <p class="subtitle">Virtual School Notebook.</p>
+
         <div class="subject-grid" id="subjectGrid"></div>
-    </section>
+
+    </div>
+
+    <div class="footer">
+        STUDENT NAME | GRADE 9 SECTION
+    </div>
+
     <script>
+
         const subjects = [
-            { name: "Filipino", teacher: "Ms. Acosta", grade: "9-Emerald 2025-2026"},
-            { name: "English", teacher: "Ms. Simbajon", grade: "9-Emerald 2025-2026"},
-            { name: "Math", teacher: "Ms. Castro", grade: "9-Emerald 2025-2026"},
-            { name: "Science", teacher: "Ms. Aquilino", grade: "9-Emerald 2025-2026"},
-            { name: "Social Studies", teacher: "Ms. Mendoza", grade: "9-Emerald 2025-2026"},
-            { name: "Values Education", teacher: "Ms. Solidum", grade: "9-Emerald 2025-2026"},
-            { name: "PEH", teacher: "Mr. Tare", grade: "9-Emerald 2025-2026"},
-            { name: "Leadership Training", teacher: "Ms. Mobilia", grade: "9-Emerald 2025-2026"},
-            { name: "Music and Arts", teacher: "Mr. Reyes", grade: "9-Emerald 2025-2026" },
-            { name: "ICT", teacher: "Ms. Caballero", grade: "9-Emerald 2025-2026"},
-            { name: "TLE", teacher: "Ms. Ramos", grade: "9-Emerald 2025-2026" },
-            { name: "Homeroom", teacher: "Ms. Acosta", grade: "9-Emerald 2025-2026" }
+
+            {
+                name: "Filipino",
+                teacher: "Ms. Acosta",
+                grade: "9-Emerald 2025-2026"
+            },
+
+            {
+                name: "English",
+                teacher: "Ms. Simbajon",
+                grade: "9-Emerald 2025-2026"
+            },
+
+            {
+                name: "Math",
+                teacher: "Ms. Castro",
+                grade: "9-Emerald 2025-2026"
+            },
+
+            {
+                name: "Science",
+                teacher: "Ms. Aquilino",
+                grade: "9-Emerald 2025-2026"
+            },
+
+            {
+                name: "Social Studies",
+                teacher: "Ms. Mendoza",
+                grade: "9-Emerald 2025-2026"
+            },
+
+            {
+                name: "Values Education",
+                teacher: "Ms. Solidum",
+                grade: "9-Emerald 2025-2026"
+            },
+
+            {
+                name: "PEH",
+                teacher: "Mr. Tare",
+                grade: "9-Emerald 2025-2026"
+            },
+
+            {
+                name: "Leadership Training",
+                teacher: "Ms. Mobilia",
+                grade: "9-Emerald 2025-2026"
+            },
+
+            {
+                name: "Music and Arts",
+                teacher: "Mr. Reyes",
+                grade: "9-Emerald 2025-2026"
+            },
+
+            {
+                name: "ICT",
+                teacher: "Ms. Caballero",
+                grade: "9-Emerald 2025-2026"
+            },
+
+            {
+                name: "TLE",
+                teacher: "Ms. Ramos",
+                grade: "9-Emerald 2025-2026"
+            },
+
+            {
+                name: "Homeroom",
+                teacher: "Ms. Acosta",
+                grade: "9-Emerald 2025-2026"
+            }
+
         ];
 
         const subjectGrid = document.getElementById("subjectGrid");
 
-        function createSubjectCard(subject) {
+        function createSubjectCard(subject){
+
             const card = document.createElement("div");
+
             card.className = "subject-card";
+
             card.innerHTML = `
-                <header>
-                    <button type="button" class="subject-button">${subject.name}</button>
-                </header>
+
+                <h2>${subject.name}</h2>
+
                 <p><strong>Teacher:</strong> ${subject.teacher}</p>
+
                 <p><strong>Class:</strong> ${subject.grade}</p>
-                
+
+                <button class="open-btn">
+                    Open Notebook
+                </button>
+
             `;
+
             return card;
         }
 
-        subjects.forEach(subject => subjectGrid.appendChild(createSubjectCard(subject)));
+        subjects.forEach(subject => {
+            subjectGrid.appendChild(createSubjectCard(subject));
+        });
+
     </script>
+
 </body>
 </html>
